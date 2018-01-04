@@ -7,15 +7,22 @@ append vars
 block content
 
 	.slides
-		section.slide
+		section.slide#section-1
 			.slide-in
-				div
 				h1 1
 				h1.appName= manifest.short_name
 				p= manifest.description
-		section.slide
+				ul
+					li
+						a(href='#section-1') Section 1
+					li
+						a(href='#section-2') Section 2
+					li
+						a(href='#section-3') Section 3
+					li
+						a(href='#section-4') Section 4
+		section.slide#section-2
 			.slide-in
-				div
 				h1 2
 				p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				p tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -23,15 +30,13 @@ block content
 				p consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 				p cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				p proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		section.slide
+		section.slide#section-3
 			.slide-in
-				div
 				h1 3
 				h1 XXX
 				include parts/examples/sampleContent
-		section.slide
+		section.slide#section-4
 			.slide-in
-				div
 				h1 4
 				include parts/examples
 
