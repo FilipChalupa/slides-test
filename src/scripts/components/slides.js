@@ -1,5 +1,7 @@
 import Component from './component'
 
+const NEXT_OFFSET = 100
+
 export default class Slides extends Component {
 	constructor(el, data) {
 		super(el, data)
@@ -18,16 +20,21 @@ export default class Slides extends Component {
 	}
 
 	updateSizes() {
-		this.windowHeight = this.$window.height()
+		const windowHeight = this.$window.height()
+		this.windowHeight = windowHeight
 
-		this.$slides.each(function() {
+		const lastIndex = this.$slides.length - 1
+
+		this.$slides.each(function(index) {
 			const $slide = $(this)
 			const $slideIn = $slide.children('.slide-in')
 
+			const bordersCount = (index === 0 ? 1 : 0) + (index === lastIndex ? 1 : 0)
 			$slide.css({
-				minHeight: $slideIn.innerHeight(),
+				height: $slideIn.innerHeight() - windowHeight + (2 - bordersCount) * NEXT_OFFSET,
 			})
 		})
+		console.log('')
 	}
 
 	onResize() {
@@ -37,13 +44,19 @@ export default class Slides extends Component {
 	onScroll() {
 		const { windowHeight } = this
 
-		this.$slides.each(function() {
+		const lastIndex = this.$slides.length - 1
+
+		this.$slides.each(function(index) {
 			const $slide = $(this)
 			const rect = this.getBoundingClientRect()
 
-			$slide.toggleClass('is-active', rect.top <= windowHeight / 2 && rect.bottom > windowHeight / 2)
-			$slide.toggleClass('is-scrolling', rect.top <= 0 && rect.bottom > windowHeight)
-			$slide.toggleClass('is-aboveViewport', rect.top < 0)
+			const top = rect.top
+			const bottom = rect.bottom// - windowHeight / 2 + NEXT_OFFSET
+			$slide.find('h1').text(top + ' ' + bottom)
+
+			$slide.toggleClass('is-active', top <= 0 && bottom >= (index === lastIndex ? 0 : 1))
+			$slide.toggleClass('is-scrolling', top <= (index === 0 ? 0 : -NEXT_OFFSET) && bottom >= (index === lastIndex ? 0 : NEXT_OFFSET))
+			$slide.toggleClass('is-aboveViewport', top + (bottom - top) / 2 < 0)
 		})
 	}
 }

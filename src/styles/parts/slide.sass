@@ -1,4 +1,6 @@
 .slide
+	$next-offset: 100px
+
 	&:nth-child(1) &-in
 		background-color: #FFCCCC
 	&:nth-child(2) &-in
@@ -8,13 +10,27 @@
 	&:nth-child(4) &-in
 		background-color: #FFCCFF
 
+	// @for $i from 2 through 4
+	// 	&:nth-child(#{$i}) &-in
+	// 		margin-left: 25vw * ($i - 1)
+
+	&:not(:nth-child(1))
+		padding-top: $next-offset
+
 	&-in
 		+fixed(0 0 null)
 		min-height: 100vh
 		padding: 1em
-		background-color: #FFFFFF
+		background-color: #FFFFFF55
 		opacity: 0
 		transition: opacity .5s
+
+		// width: 25vw
+		// opacity: .3
+
+		// h1
+		// 	+sticky(0 null null)
+		// 	background: white
 
 
 	&.is-active &
