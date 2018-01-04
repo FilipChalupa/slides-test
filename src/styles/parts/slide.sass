@@ -1,16 +1,32 @@
 .slide
-	width: 25vw
-	@for $i from 2 through 10
-		&:nth-child(#{$i})
-			margin-left: 25vw * ($i - 1)
+	&:nth-child(1) &-in
+		background-color: #FFCCCC
+	&:nth-child(2) &-in
+		background-color: #CCFFCC
+	&:nth-child(3) &-in
+		background-color: #CCCCFF
+	&:nth-child(4) &-in
+		background-color: #FFCCFF
 
 	&-in
-		position: relative
+		+fixed(0 0 null)
 		min-height: 100vh
 		padding: 1em
-		box-shadow: inset 0 0 10px red
-		opacity: .5
+		background-color: #FFFFFF
+		opacity: 0
+		transition: opacity .5s
 
-	&.is-active
-		z-index: 1
-		opacity: 1
+
+	&.is-active &
+		&-in
+			z-index: 1
+			opacity: 1
+
+	&.is-aboveViewport &
+		&-in
+			top: auto
+			bottom: 0
+
+	&.is-scrolling &
+		&-in
+			position: relative

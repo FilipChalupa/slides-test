@@ -9,10 +9,14 @@ block content
 	.slides
 		section.slide
 			.slide-in
+				div
+				h1 1
 				h1.appName= manifest.short_name
 				p= manifest.description
 		section.slide
 			.slide-in
+				div
+				h1 2
 				p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				p tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				p quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -21,8 +25,18 @@ block content
 				p proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		section.slide
 			.slide-in
+				div
+				h1 3
 				h1 XXX
 				include parts/examples/sampleContent
 		section.slide
 			.slide-in
+				div
+				h1 4
 				include parts/examples
+
+	script.
+		initComponents.push({
+			name: 'slides',
+			place: '.slides',
+		})

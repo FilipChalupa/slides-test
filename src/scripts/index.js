@@ -5,11 +5,13 @@ import componentsHandler from './componentsHandler'
 
 import example from './components/example'
 import shapes from './components/shapes'
+import slides from './components/slides'
 
 const onJQueryAvailable = ($) => {
 	componentsHandler({
 		example,
 		shapes,
+		slides,
 	})
 }
 

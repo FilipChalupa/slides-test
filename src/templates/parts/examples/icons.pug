@@ -4,6 +4,6 @@ section
 
 	p
 		each image in manifest.icons || []
-			img(src=image.src.substr(1), alt=image.sizes, title=image.sizes)
+			//-img(src=image.src.substr(1), alt=image.sizes, title=image.sizes)
 		else
 			em App manifest is not provided.
