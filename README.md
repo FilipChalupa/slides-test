@@ -15,4 +15,4 @@ Oh, that's it? Go to that directory, run `mango dev` and your browser should sta
 Current build preview:
 ----------------------
 
-https://onset.github.io/mango-cli-example/
+https://onset.github.io/slides-test/

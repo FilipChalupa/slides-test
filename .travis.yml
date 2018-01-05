@@ -47,7 +47,7 @@ env:
     secure: "a9DX/AEQpuw0RQj0WCBsaFdz1z2Mv2eq4UVIBZnlToXqg7D9olSyhmwR03Vaq0ql/1ZzIvrnjC2sP+ClBCR7JHiFLP1MtvLbkApoe4Bit8HJ95iymsyDeqnFIsL0kasiln3BfaMWGKhDFJ3UAj5zTw01G29T8Be01gYy1+sXd96u1iznRQ+Yxf/JuQhJ4/dbuvbMoTcFGpMAiOiawqzg4bXyTOZaALmsx1ixKsWmFH/qmg7IsGwfoxDuGchqaaQRh2B7lKMBYSLrDBfTRKoNKmAIvRCgtS5sA/9pzMjxFuBvlGmbCf0/hpVg/vSt0Rq1o0qaNzybP0M9Uw5lVzvLE+o+HpbfDTesGQqLsMQYnFotEmrhOQ3flSShCWkLhprkccWsY87CcqEzt7dzc93xvm/UnaTffVqoxNSCPmoqY3GLZI5Rye8AakUYGfLnEKg1E1JJNFaWJDDjFlNkvdf6JgK1dakWkxTQ0IPwC0KmpXCLvKpPoDklFQOA7ZbCS5AtoOoe3PCaLLthAe8iHnVednaPw5c1TqBKEDFxo/BcUlugmPb87ycG+zjPd4tA70EasFsKcQBKE2X0IKK/VkxSmlD7TBZglIOCxGKR9TrzdLMfVGfHiMABqVZPfxoYi0PCQD2cAy85CNVwAO/6V7V0Wvg56zXCWJhfAZlED83ArLI=" # GH_TOKEN=xyz123
 
 after_success:
-  - GIT_REPO="https://$GH_TOKEN@github.com/Onset/mango-cli-example.git"
+  - GIT_REPO="https://$GH_TOKEN@github.com/Onset/slides-test.git"
   - cd dist
   - git init
   - git config user.email "travis@example.com"
