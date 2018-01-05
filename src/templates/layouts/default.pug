@@ -3,7 +3,7 @@ block vars
 	- manifest = manifest || {}
 	- var title = manifest.name
 	- var description = ''
-	- assetPath = assetPath ? assetPath.replace(/\/+$/, '') : ''
+	- assetPath = assetPath ? assetPath.replace(/\/+$/, '') : '.'
 
 html(lang=manifest.lang)
 	head
