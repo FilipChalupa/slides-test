@@ -31,7 +31,7 @@ export default class Slides extends Component {
 
 			const bordersCount = (index === 0 ? 1 : 0) + (index === lastIndex ? 1 : 0)
 			$slide.css({
-				height: $slideIn.innerHeight() - windowHeight + (2 - bordersCount) * NEXT_OFFSET,
+				height: $slideIn.innerHeight() - (index === lastIndex ? 0 : windowHeight) + (2 - bordersCount) * NEXT_OFFSET,
 			})
 		})
 		console.log('')
@@ -51,12 +51,12 @@ export default class Slides extends Component {
 			const rect = this.getBoundingClientRect()
 
 			const top = rect.top
-			const bottom = rect.bottom// - windowHeight / 2 + NEXT_OFFSET
-			$slide.find('h1').text(top + ' ' + bottom)
+			const bottom = rect.bottom
+			//$slide.find('h1').text(top + ' ' + bottom)
 
 			$slide.toggleClass('is-active', top <= 0 && bottom >= (index === lastIndex ? 0 : 1))
 			$slide.toggleClass('is-scrolling', top <= (index === 0 ? 0 : -NEXT_OFFSET) && bottom >= (index === lastIndex ? 0 : NEXT_OFFSET))
-			$slide.toggleClass('is-aboveViewport', top + (bottom - top) / 2 < 0)
+			$slide.toggleClass('is-aboveViewport', top < (index === 0 ? 0 : -NEXT_OFFSET))
 		})
 	}
 }
